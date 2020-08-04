@@ -40,16 +40,16 @@ apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'com.jfrog.bintray'
 
 //项目主页
-def siteUrl = 'https://github.com/JayZhaoCN'
+def siteUrl = 'https://github.com/wantWhat/jcenterDemo'
 //项目的版本控制地址
-def gitUrl = 'https://github.com/JayZhaoCN'
+def gitUrl = 'https://github.com/wantWhat/jcenterDemo.git'
 
 //发布到组织名称名字，必须填写
-group = "com.utils.zhaojiabao"
+group = "com.utils.chason"
 //发布到JCenter上的项目名字，必须填写
-def libName = "baseui"
+def libName = "mytool"
 // 版本号，下次更新是只需要更改版本号即可
-version = "0.0.3"
+version = "1.0.2"
 /**  上面配置后上传至JCenter后的编译路径是这样的： compile 'group:libName:version'  **/
 
 //生成源文件
@@ -65,7 +65,7 @@ task javadoc(type: Javadoc) {
     options.charSet 'UTF-8'
     options.author true
     options.version true
-    options.links "https://github.com/JayZhaoCN"
+    options.links "https://github.com/wantWhat/jcenterDemo"
     failOnError false
 }
 
@@ -93,7 +93,7 @@ install {
         pom {
             project {
                 packaging 'aar'
-                name 'baseui'
+                name libName
                 url siteUrl
                 licenses {
                     license {
@@ -103,9 +103,9 @@ install {
                 }
                 developers {
                     developer {
-                        id 'JayZhao'
-                        name 'Zhaojiabao'
-                        email '1760064052@qq.com'
+                        id 'chasonwang'
+                        name 'chason'
+                        email 'chason15092289239@gmail.com'
                     }
                 }
                 scm {
@@ -126,9 +126,9 @@ bintray {
     key = properties.getProperty("bintray.apikey")   //读取 local.properties 文件里面的 bintray.apikey
     configurations = ['archives']
     pkg {
-        repo = "maven"
+        repo = "myrep" //仓库名称
         name = libName    //发布到JCenter上的项目名字，必须填写
-        desc = 'baseui'    //项目描述
+        desc = 'my utils'    //项目描述
         websiteUrl = siteUrl
         vcsUrl = gitUrl
         licenses = ["Apache-2.0"]
