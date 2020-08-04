@@ -1,0 +1,3 @@
+include ':myTool'
+include ':app'
+rootProject.name = "MyJCenter"
